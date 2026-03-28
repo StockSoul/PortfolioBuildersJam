@@ -58,4 +58,20 @@ public class PlayerController : MonoBehaviour
 
         transform.position = new Vector2(pos.x, clampedY);
     }
+    void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.CompareTag("DeadlyEnemy") || other.CompareTag("KillableEnemy"))
+    {
+        Die();
+    }
+}
+    public void Die()
+    {
+        Debug.Log("Player Died");
+
+        Destroy(gameObject);
+
+        
+    }
+
 }
