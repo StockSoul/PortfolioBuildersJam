@@ -29,7 +29,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //We only move up and down because we are moving "forward"
-        float moveY = Input.GetAxis("Vertical");
+        float moveY = 0.0f;
+
+        if (Input.GetKey(KeyCode.S)) moveY = -1f;
+        if (Input.GetKey(KeyCode.W)) moveY = 1f;
 
         Vector3 move = new Vector3(0f, moveY, 0f);
         transform.position += move * speed * Time.deltaTime;
