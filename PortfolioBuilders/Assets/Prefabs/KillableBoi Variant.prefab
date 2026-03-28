@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KillableEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6747436892846045226, guid: cd39a86bd2068fa4a80e8aa17278c357, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 242859430319212890, guid: 96274607d75400144b609e3ae4a7bcdb, type: 3}
+    - target: {fileID: 6747436892846045226, guid: cd39a86bd2068fa4a80e8aa17278c357, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7974080305996028648, guid: cd39a86bd2068fa4a80e8aa17278c357, type: 3}
       propertyPath: m_FlipX
       value: 1

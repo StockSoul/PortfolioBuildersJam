@@ -4,6 +4,9 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
 
+    public float tiltAngle = 15f; // max tilt in degrees
+    public float tiltSpeed = 5f;  // how fast it rotates
+
     private Camera cam;
     private float halfHeight;
     private float halfWidth;
@@ -12,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private float playerHalfHeight;
 
     private Shooting shooting;
+
+    
 
     void Start()
     {
@@ -39,6 +44,9 @@ public class PlayerController : MonoBehaviour
 
         // Clamp AFTER movement
         ClampToCamera();
+
+        float targetZ = moveY * tiltAngle;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, targetZ), Time.deltaTime * tiltSpeed);
 
         if (Input.GetKeyDown("space"))
         {
