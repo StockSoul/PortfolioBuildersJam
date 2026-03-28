@@ -531,6 +531,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &627749248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627749249}
+  - component: {fileID: 627749250}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627749249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627749248}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.60096, y: 4.18606, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &627749250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627749248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc62e70c1de36d4291074d8244d5cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  score: 0
 --- !u!1 &707462600
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +724,9 @@ MonoBehaviour:
   - {fileID: 1296994016}
   normalEnemy: {fileID: 2780699714934674061, guid: cd39a86bd2068fa4a80e8aa17278c357, type: 3}
   shootableEnemy: {fileID: 373680085342731247, guid: c98a3e9589c314e4194e09899338c2e2, type: 3}
-  spawnDelay: 2
+  scoreTriggerPrefab: {fileID: 7886311163197237524, guid: c0f65ad3d6f514545a83bd4c2edd6f3f, type: 3}
+  speed: 5
+  spawnDelay: 1.5
 --- !u!1 &1200611288
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +743,7 @@ GameObject:
   - component: {fileID: 1200611293}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -714,6 +761,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 10
+  tiltAngle: 15
+  tiltSpeed: 5
 --- !u!212 &1200611290
 SpriteRenderer:
   serializedVersion: 2
@@ -1254,3 +1303,4 @@ SceneRoots:
   - {fileID: 464339228}
   - {fileID: 1296994016}
   - {fileID: 776081624}
+  - {fileID: 627749249}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -7,8 +8,12 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject normalEnemy;
     public GameObject shootableEnemy;
+    public GameObject scoreTriggerPrefab;  // assign this in the inspector!
     public float speed = 5f; // starting speed of enemies
     public float spawnDelay = 1f;
+
+    private List<GameObject> currentWave = new List<GameObject>(); // track current wave
+   
 
     void Start()
     {
@@ -22,14 +27,15 @@ public class EnemySpawner : MonoBehaviour
             SpawnWave(); //Spawn enemies
 
             yield return new WaitForSeconds(spawnDelay); //Wait a few seconds 
-            // increase enemy speed gradually
-           speed *= 1.05f; // tweak this for difficulty curve
+            
+           speed *= 1.05f; // How fast they gradually go
         }
     }
 
     void SpawnWave()
     {
-        int safeLane = Random.Range(0, spawnPoints.Length); //pick a random safe lane to pick enemy
+
+        int safeLane = Random.Range(0,spawnPoints.Length); //pick a random safe lane to pick enemy
 
         for (int i = 0; i < spawnPoints.Length; i++)
         {
@@ -42,10 +48,17 @@ public class EnemySpawner : MonoBehaviour
 
             Vector3 spawnPos = spawnPoints[i].position;   //set spawn point
 
-            GameObject enemy = Instantiate(enemyToSpawn, spawnPos, transform.rotation);
-          
-            // set enemy speed based on progressive difficulty
+            GameObject enemy = Instantiate(enemyToSpawn,spawnPos,transform.rotation);
+    
+            // set enemy new speed
              enemy.GetComponent<EnemyScript>().SetSpeed(speed);
+
+             if (i == safeLane)
+        {
+            Instantiate(scoreTriggerPrefab,spawnPos,transform.rotation);
+        }
+
         }
     }
+    
 }
